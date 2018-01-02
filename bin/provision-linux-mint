@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# Install pipenv.
+# Install pipenv for python and python3.
 if ! [ -x "$(command -v pipenv)" ]; then
   sudo apt-get update
+
+  sudo apt-get install -y python-pip
+  pip install --upgrade pip
+  sudo pip install pipenv flake8 pylint
+
   sudo apt-get install -y python3-pip
   pip3 install --upgrade pip
-  sudo apt-get install python3-setuptools
-  sudo pip3 install pipenv
+  sudo pip3 install setuptools pipenv flake8 pylint
 fi
