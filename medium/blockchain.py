@@ -55,7 +55,15 @@ class Blockchain():
 
     @staticmethod
     def hash(block):
-        pass
+        '''
+        Creates a SHA-256 hash of a block.
+
+        :param block: <dict>
+        :return: <str>
+        '''
+        # Ensure that the json is ordered to get deterministic hash.
+        block_json = json.dumps(block, sort_keys=True).encode()
+        return hashlib.sha256(block_json).hexdigest()
 
     @property
     def last_block(self):
