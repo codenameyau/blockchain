@@ -1,11 +1,11 @@
-import hashlib
-import json
-from time import time
-
 '''
 Step-by-step Guide
 https://hackernoon.com/learn-blockchains-by-building-one-117428612f46
 '''
+
+import hashlib
+import json
+from time import time
 
 class Blockchain():
 
@@ -67,4 +67,7 @@ class Blockchain():
 
     @property
     def last_block(self):
+        '''
+        Returns the last block in the blockchain.
+        '''
         return self.transactions[-1]
