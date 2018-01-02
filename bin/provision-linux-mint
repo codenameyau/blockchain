@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Install pipenv.
+if ! [ -x "$(command -v pipenv)" ]; then
+  sudo apt-get update
+  sudo apt-get install -y python3-pip
+  pip3 install --upgrade pip
+  sudo apt-get install python3-setuptools
+  sudo pip3 install pipenv
+fi
