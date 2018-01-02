@@ -1,14 +1,19 @@
 #!/bin/bash
 
-# Install pipenv for python and python3.
+# Install pipenv.
 if ! [ -x "$(command -v pipenv)" ]; then
   sudo apt-get update
 
+  # Install pip for vscode linters.
   sudo apt-get install -y python-pip
   pip install --upgrade pip
-  sudo pip install pipenv flake8 pylint
+  sudo pip install pylint
 
+  # Use python3 pipenv.
   sudo apt-get install -y python3-pip
   pip3 install --upgrade pip
   sudo pip3 install setuptools pipenv flake8 pylint
 fi
+
+pipenv install
+pipenv shell
