@@ -6,12 +6,12 @@ if ! [ -x "$(command -v pipenv)" ]; then
 
   # Install pip for vscode linters.
   sudo apt-get install -y python-pip
-  pip install --upgrade pip
+  sudo pip install --upgrade pip
   sudo pip install pylint
 
   # Use python3 pipenv.
   sudo apt-get install -y python3-pip
-  pip3 install --upgrade pip
+  sudo pip3 install --upgrade pip
   sudo pip3 install setuptools pipenv flake8 pylint
 fi
 

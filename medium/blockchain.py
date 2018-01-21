@@ -53,6 +53,26 @@ class Blockchain():
         self.transactions.append(transaction)
         return self.last_block.get('index') + 1
 
+    def proof_of_work(self, last_proof):
+        '''
+        Find a number that when multipled by the last_proof has 'n' leading 0s
+        as a proof of work algorithm. This is a simple implemetation.
+        '''
+        proof = 0
+        while not self.valid_proof(last_proof, proof):
+            proof += 1
+        return proof
+
+    @staticmethod
+    def valid_proof(last_proof, proof, leading_zeros=4):
+        '''
+        Returns whether the two multipled numbers have 4 leading zeros.
+
+        :return: <bool>
+        '''
+        guess_hash = hashlib.sha256(str(last_proof * proof).encode()).hexdigest()
+        return guess_hash[:leading_zeros] == ('0' * leading_zeros)
+
     @staticmethod
     def hash(block):
         '''
